@@ -16,8 +16,14 @@
 		$link = $_POST['link'];
 		$texto_grande = $_POST['texto_grande'];
 		$texto_pequeno = $_POST['texto_pequeno'];
-		if(isset($_FILES['imagem_grande']) && $_FILES['imagem_grande']['error'] == 0) $img_grande = "../../images/slider/" . $_FILES['imagem_grande']['name'];
-		if(isset($_FILES['imagem_pequena']) && $_FILES['imagem_pequena']['error'] == 0) $img_pequena = "../../images/slider/" . $_FILES['imagem_pequena']['name'];
+		if(isset($_FILES['imagem_grande']) && $_FILES['imagem_grande']['error'] == 0){
+			unlink($img_grande);
+			$img_grande = "../../images/slider/" . $_FILES['imagem_grande']['name'];
+		}
+		if(isset($_FILES['imagem_pequena']) && $_FILES['imagem_pequena']['error'] == 0){
+			unlink($img_pequena);
+			$img_pequena = "../../images/slider/" . $_FILES['imagem_pequena']['name'];
+		}
 		$slide = new Slide_home($img_grande, $img_pequena, $texto_grande, $texto_pequeno, $link, $id);
 		if(isset($_FILES)){
 			foreach ($_FILES as $key => $value) {
@@ -29,7 +35,7 @@
 				}  
 			}
 		}
-		else echo 'ue pora';
+		else echo '$_FILES is not set!!';
 		if($id > 0){
 			Slide_homeDAO::update($slide);
 		}

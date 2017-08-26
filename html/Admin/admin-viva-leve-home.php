@@ -53,8 +53,7 @@ function carregar(form){
 }
 function salvar(){
     setSubmit();
-    $('form').trigger('submit');
-    location.reload();
+    $('form').trigger('submit').location.reload();
 }
 </script>
 <?php include_once('footer.php');?>
