@@ -1,3 +1,3 @@
 <?php
-	var_dump($_POST);
+	file_put_contents("vish.txt", serialize($_POST), FILE_APPEND);
 ?>

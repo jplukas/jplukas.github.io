@@ -1,0 +1,43 @@
+<html>
+<body>
+<form method="POST" action = "teste.php" class="my_form">
+<input type="hidden" name="eeee" value="sefoder.png">
+<textarea name="caraio_porra">Eita</textarea>
+<input type = "submit">
+</form>
+<form method="POST" action = "teste.php" class="my_form">
+<input type="hidden" name="eeee" value="sefoder.png">
+<textarea name="caraio_porra">eitajao</textarea>
+<input type = "submit">
+</form>
+<form method="POST" action = "teste.php" class="my_form">
+<input type="hidden" name="eeee" value="sefoder.png">
+<textarea name="caraio_porra">eitajao</textarea>
+<input type = "submit">
+</form>
+<button onclick="salva()">salva</button>
+<h2 id="cabeca"></h2>
+<script src="jquery.js">
+</script>
+<script>
+$(function() {
+  $('form').submit(function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser
+    var form = $(this);
+    $.ajax({
+      type: form.attr('method'),
+      url: form.attr('action'),
+      data: form.serialize()
+    }).done(function(data) {
+      alert(data);
+    }).fail(function(data) {
+      // Optionally alert the user of an error here...
+    });
+  });
+});
+function salva(){
+  $('form').submit();
+}
+</script>
+</body>
+</html>

@@ -1,9 +1,13 @@
-<h2>Dúvidas</h2>
+				<h2>Dúvidas</h2>
+<?php
+	include_once('../../DAO/Fixos_texto_paginaDAO.php');
+    include_once('../../DB/factory.php');
+    $h2 = Fixos_texto_paginaDAO::read(Array("pagina" => "/index.php", "nome_campo" => "contato h2")); 
+    $p = Fixos_texto_paginaDAO::read(Array("pagina" => "/index.php", "nome_campo" => "contato p")); 
+?>
                             <form class="formulario-slideshow">
                                 <p>Texto dúvida</p>
-                                <textarea></textarea><br><br>
+                                <textarea name="contato h2"><?php echo $h2[0]['valor']; ?></textarea><br><br>
                                 <p>Texto contato</p>
-                                <textarea></textarea><br><br>
-                                <p>Imagem</p><br><br>
-                                <input type="file" name="arquivos" class="btn files"/><br><br>
-                            </form>
+                                <textarea name="contato p"><?php echo $p[0]['valor']; ?></textarea><br><br>
+                            </form><br><br>
