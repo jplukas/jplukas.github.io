@@ -30,7 +30,7 @@
 			return $data;
 		}
 
-		public static function update(){
+		public static function update($fixos_texto_pagina){
 			$c = getConn();
 			$stmt = $c->prepare("UPDATE fixos_texto_pagina SET pagina = ?, nome_campo = ?, valor = ? WHERE id = ?;");
 			$stmt->bind_param("sssi", $fixos_texto_pagina->getPagina(), $fixos_texto_pagina->getNome_campo(), $fixos_texto_pagina->getValor(), $fixos_texto_pagina->getId());

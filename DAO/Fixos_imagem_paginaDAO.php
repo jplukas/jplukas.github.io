@@ -33,7 +33,7 @@
 		public static function update($fixos_imagem_pagina){
 			$c = getConn();
 			$stmt = $c->prepare("UPDATE fixos_imagem_pagina SET pagina = ?, nome_campo = ?, src = ?, legenda = ? WHERE id = ?;");
-			$stmt->bind_param("ssssi", $fixos_imagem_pagina->getPagina(), $fixos_imagem_pagina->getNome_campo(), $fixos_imagem_pagina->getSrc(), $fixos_imagem_pagina->getId(), $fixos_imagem_pagina->getId());
+			$stmt->bind_param("ssssi", $fixos_imagem_pagina->getPagina(), $fixos_imagem_pagina->getNome_campo(), $fixos_imagem_pagina->getSrc(), $fixos_imagem_pagina->getLegenda(), $fixos_imagem_pagina->getId());
 			$res = $stmt->execute();
 			return $res;
 		}
