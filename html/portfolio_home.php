@@ -17,7 +17,7 @@
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">' . $value['nome'] .'</a></h3>
-                                    <p>' . $value['nome'] .'</p>
+                                    <p>' . $value['texto_portfolio'] .'</p>
                                     <a class="preview" href="services.html" ><i class="fa fa-eye"></i> Visualizar</a>
                                 </div> 
                             </div>

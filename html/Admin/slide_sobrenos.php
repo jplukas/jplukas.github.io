@@ -1,6 +1,7 @@
 	<h2>Slide Show</h2>
 <?php
     include_once('../../DAO/Slide_SobreNosDAO.php');
+    include_once('../../Classes/Slide_SobreNos.php');
     include_once('../../DB/factory.php');
     $slides = Slide_SobreNosDAO::readAll();
     foreach ($slides as $key => $value) {

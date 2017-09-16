@@ -10,7 +10,14 @@
             <!-- Our Skill -->
             
             <div class="center wow fadeInDown">
-                <h2>Sobre a Viva Leve</h2>
+                <h2><?php
+                        include_once('../Classes/Fixos_texto_pagina.php');
+                        include_once('../DAO/Fixos_texto_paginaDAO.php');
+                        $a = Fixos_texto_paginaDAO::read(array("pagina" => $_SERVER['PHP_SELF'],
+                            "nome_campo" => "lead h2"));
+                        echo $a[0]['valor']; 
+                    ?>
+                </h2>
                 <p class="lead"><?php
                         include_once('../Classes/Fixos_texto_pagina.php');
                         include_once('../DAO/Fixos_texto_paginaDAO.php'); 

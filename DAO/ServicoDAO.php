@@ -15,7 +15,7 @@
 			$data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 			return $data;
 		}
-		public static function update(){
+		public static function update($servico){
 			$c = getConn();
 			$stmt = $c->prepare("UPDATE servico SET nome = ?, texto_principal = ?, imagem_principal = ?, texto_portfolio = ?, imagem_portfolio = ? WHERE id = ?;");
 			$stmt->bind_param("sssssi", $servico->getNome(), $servico->getTexto_principal(), $servico->getImagem_principal(), $servico->getTexto_portfolio(), $servico->getImagem_portfolio(), $servico->getId());

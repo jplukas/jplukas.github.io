@@ -15,7 +15,7 @@
 			$data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 			return $data;
 		}
-		public static function update(){
+		public static function update($programa_emagrecimento){
 			$c = getConn();
 			$stmt = $c->prepare("UPDATE programa_emagrecimento SET nome = ?, descricao = ?, imagem = ? WHERE id = ?;");
 			$stmt->bind_param("sssi", $programa_emagrecimento->getNome(), $programa_emagrecimento->getDescricao(), $programa_emagrecimento->getImagem(), $programa_emagrecimento->getId());

@@ -12,14 +12,14 @@
 		$id = $_POST['id'];
 		$legenda = $_POST['legenda'];
 		$imagem = $_POST['imagem'];
-		if(isset($_POST['imagem'] && $_POST['imagem']['error'] == 0)){
-			$imagem = "images/" . $_POST['imagem']['name'];
-			move_uploaded_file($_POST['imagem']['tmp_name'], "../../" . $imagem);
+		if(isset($_FILES['imagem']) && ($_FILES['imagem']['error'] == 0)){
+			$imagem = "images/" . $_FILES['imagem']['name'];
+			move_uploaded_file($_FILES['imagem']['tmp_name'], "../../" . $imagem);
 		}
 		$slide_sobrenos = new Slide_SobreNos($imagem, $legenda, $id);
 		if(($_POST['delete_registry'] != null) && ($_POST['delete_registry'] == "on")){
 			unlink("../../" . $imagem);
-			ParceiroDAO::delete($parceiro);
+			Slide_SobreNosDAO::delete($slide_sobrenos);
 		}
 		else{
 			if($id > 0) Slide_SobreNosDAO::update($slide_sobrenos);
